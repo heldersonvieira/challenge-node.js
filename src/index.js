@@ -101,10 +101,10 @@ app.delete("/todos/:id", checksExistsUserAccount, (request, response) => {
   const { user } = request;
   const { id } = request.params;
 
-  const todoFound = user.todos.find((todo) => todo.id === id);
-  const index = user.todos.indexOf(todoFound);
+  // const todoFound = user.todos.find((todo) => todo.id === id);
+  // const index = user.todos.indexOf(todoFound);
   // As duas linhas acima podem ser substituidas pela única linha abaixo
-  // const index = user.todos.findIndex(todo => todo.id === id);
+  const index = user.todos.findIndex(todo => todo.id === id);
 
   if (index < 0) {
     return response.status(404).json({ error: "Todo not found" });
